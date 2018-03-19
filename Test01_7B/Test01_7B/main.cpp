@@ -70,6 +70,9 @@ int main()
 	Producer p;
 	p.Run();
 
+	Producer p1;
+	p1.Run();
+
 	Consumer c;
 	c.Run();
 

@@ -12,7 +12,8 @@ int main()
 {
 	printf("接收方: port=9001 ...\n");
 
-	AfSockAddr local("127.0.0.1", 9001);
+	//AfSockAddr local("127.0.0.1", 9001);
+	AfSockAddr local("192.168.204.129", 9001);
 	AfUdpSocket sock;
 	sock.Open(local, true);
 
@@ -39,5 +40,7 @@ int main()
 
 	// 关闭socket
 	sock.Close();
+
+	getchar();
 	return 0;
 }

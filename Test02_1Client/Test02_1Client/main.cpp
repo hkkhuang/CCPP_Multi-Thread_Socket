@@ -10,7 +10,8 @@ int main()
 {
 	printf("发送方: port=9000 ...\n");
 
-	AfSockAddr local("127.0.0.1", 9000);
+	//AfSockAddr local("127.0.0.1", 9000);
+	AfSockAddr local("192.168.204.1", 9000);
 	AfUdpSocket sock;
 	sock.Open(local, true);
 
@@ -23,7 +24,9 @@ int main()
 		int n = strlen(buf);
 
 		// 发送
-		AfSockAddr peer("127.0.0.1", 9001); // 对方地址
+		//AfSockAddr peer("127.0.0.1", 9001); // 对方地址
+		AfSockAddr peer("192.168.204.129", 9001); // 对方地址
+		
 		sock.SendTo(buf, n, peer);
 
 		// 结束
@@ -35,5 +38,6 @@ int main()
 
 	// 关闭socket
 	sock.Close();
+	getchar();
 	return 0;
 }

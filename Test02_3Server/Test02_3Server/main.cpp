@@ -8,6 +8,18 @@
 接收方: 9001
 */
 
+///按照十六进制方式输出
+void print_bytes(void* buf, int n)
+{
+	unsigned char* bytes = (unsigned char*)buf;
+
+	for (int i=0;i<n;i++)
+	{
+		printf("%02X ", bytes[i]);
+	}
+	printf("\n");
+}
+
 int main()
 {
 	printf("接收方: port=9001 ...\n");
@@ -16,30 +28,24 @@ int main()
 	//AfSockAddr local("192.168.204.129", 9001);
 	AfUdpSocket sock;
 	sock.Open(local, true);
-	if (1)
-	{
-		//设置SendBuf的大小
-		int bufsize = 128 * 1024;//128K
-		int ret = setsockopt(sock.hSock, SOL_SOCKET, SO_RCVBUF, (const char*)&bufsize, sizeof(int));
-
-		if (ret < 0)
-		{
-			//设置失败；
-		}
-	}
+	
 	while (1)
 	{
 		char buf[128];
 		AfSockAddr peer; // 对方的地址
-		int n = sock.RecvFrom(buf, 128, peer);
+		int n = sock.RecvFrom(buf, 128, peer); //参数  （用于存储接收信息空间，空间长度，对方地址）
 
 		if (n <= 0)
 		{
 			break;
 		}
 
-		buf[n] = 0;
-		printf("Got: %s \n", buf);
+		//buf[n] = 0;
+		//printf("Got: %s \n", buf);
+
+		printf("Got: ");
+		print_bytes(buf, n);
+		
 
 		// 结束
 		if (strcmp("bye", buf) == 0)

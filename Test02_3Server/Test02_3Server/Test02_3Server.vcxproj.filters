@@ -14,7 +14,7 @@
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
     <Filter Include="afos">
-      <UniqueIdentifier>{6118b491-f180-411b-89c5-1e010d580d90}</UniqueIdentifier>
+      <UniqueIdentifier>{4f8264e3-6ac9-4d3c-abf8-b05645c5bb96}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>

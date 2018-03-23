@@ -14,7 +14,7 @@
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
     <Filter Include="afos">
-      <UniqueIdentifier>{6118b491-f180-411b-89c5-1e010d580d90}</UniqueIdentifier>
+      <UniqueIdentifier>{ef238285-c527-4cfd-938a-9a0b541bcda8}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -68,10 +68,5 @@
     <ClCompile Include="main.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <Text Include="afos\ChangeLog.txt">
-      <Filter>afos</Filter>
-    </Text>
   </ItemGroup>
 </Project>

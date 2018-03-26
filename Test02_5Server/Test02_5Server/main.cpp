@@ -27,13 +27,25 @@ int main()
 	AfSockAddr local("127.0.0.1", 9001);
 	//AfSockAddr local("192.168.204.129", 9001);
 	AfUdpSocket sock;
-	sock.Open(local, true);
+	if (sock.Open(local, false) < 0)
+	{
+		printf("无法创建socket! \n");
+		return -1;
+	}
 	
+	//设置接收超时时限
+	//sock.SetOpt_RecvTimeout(3000);  //设置时限为3秒
+
+	//设置为 非阻塞模式 non-blocked
+	sock.Ioctl_SetBlockedIo(false);  //默认是blocked方式
+
 	while (1)
 	{
 		unsigned char buf[128];
 		AfSockAddr peer; // 对方的地址
 		int n = sock.RecvFrom(buf, 128, peer); //参数  （用于存储接收信息空间，空间长度，对方地址）
+
+		//printf("God %d bytes. \n",n);
 
 		if (n <= 0)
 		{
@@ -52,6 +64,6 @@ int main()
 	// 关闭socket
 	sock.Close();
 
-	getchar();
+	//getchar();  //设置接收超时 则取消 不应用
 	return 0;
 }

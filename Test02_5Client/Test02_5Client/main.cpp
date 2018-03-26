@@ -10,7 +10,8 @@ int main()
 {
 	printf("发送方: port=9000 ...\n");
 	//printf("发送方: port未指定，OS自动分配\n");
-	AfSockAddr local("127.0.0.1", 9000);
+	AfSockAddr local("127.0.0.1");
+	/*AfSockAddr local("127.0.0.1", 9000);*/
 	//创建socket 不知道本地IP地址和端口号
 	AfUdpSocket sock;
 	//sock.Open();
